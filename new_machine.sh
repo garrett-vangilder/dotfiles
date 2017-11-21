@@ -7,6 +7,7 @@ function moves_config() {
     local msg="moving config files"
     echo "$msg"
     mv .zshrc ~/.zshrc
+    mv .gitconfig ~/.gitconfig
 }
 
 # ===========================================================================
@@ -35,7 +36,6 @@ function install_zsh() {
     else
         echo "We'll install zsh, then re-run this script!"
         brew install zsh
-        source ~/.zshrc
     fi
 }
 
@@ -89,5 +89,6 @@ function check_cask() {
 # ===============================================================================
 if [ "$0" = "${BASH_SOURCE}" ]; then
     echo "Welcome to your new machine. This will build your dev environment."
-    check_cask && main "$@"
+    check_cask 
+    moves_config && main "$@"
 fi
