@@ -1,19 +1,35 @@
 #!/bin/bash
 
 # ===========================================================================
+# Cleanup
+# ===========================================================================
+function moves_config() {
+    # Step 7
+    local msg="cleanup"
+    echo "$msg"
+    source ~/.zshrc
+}
+
+# ===========================================================================
 # Moves Config Files
 # ===========================================================================
 function moves_config() {
+    # Step 6
     local msg="moving config files"
     echo "$msg"
     mv .zshrc ~/.zshrc
-    mv configfiles/.gitconfig ~/.gitconfig
+    mv configfiles/git/.gitconfig ~/.gitconfig
+    mv configfiles/git/.gitignore ~/.gitignore
+    mv configfiles/hyper/.hyper.js ~/.hyper.js
+    mv configfiles/zsh/.zshrc ~/.zshrc
+    clean_up
 }
 
 # ===========================================================================
 # Installs Python3 and Pip
 # ===========================================================================
 function install_python() {
+    # Step 5
     local msg="installing python and pip"
     echo "$msg"
     brew install python3
@@ -38,6 +54,7 @@ function install_zsh() {
         echo "We'll install zsh, then re-run this script!"
         brew install zsh
     fi
+    install_python
 }
 
 # ===========================================================================
