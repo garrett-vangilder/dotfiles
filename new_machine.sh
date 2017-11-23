@@ -106,6 +106,5 @@ function check_cask() {
 # ===============================================================================
 if [ "$0" = "${BASH_SOURCE}" ]; then
     echo "Welcome to your new machine. This will build your dev environment."
-    check_cask 
-    moves_config && main "$@"
+    check_cask && main "$@"
 fi
