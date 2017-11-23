@@ -7,7 +7,7 @@ function moves_config() {
     local msg="moving config files"
     echo "$msg"
     mv .zshrc ~/.zshrc
-    mv .gitconfig ~/.gitconfig
+    mv configfiles/.gitconfig ~/.gitconfig
 }
 
 # ===========================================================================
@@ -24,7 +24,8 @@ function install_python() {
 # Installs Popular Applications
 # ===========================================================================
 function install_zsh() {
-    local msg="installing python and pip"
+    # Step 4
+    local msg="installing zsh"
     echo "$msg"
     if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
         if [[ ! -d $dir/oh-my-zsh/ ]]; then
@@ -43,6 +44,7 @@ function install_zsh() {
 # Installs Popular Applications
 # ===========================================================================
 function install_apps() {
+    # Step 3
     local msg="installing popular apps"
     echo "$msg"
     brew install git
@@ -60,8 +62,7 @@ function install_apps() {
 # Brew Cask Installer
 # ===========================================================================
 function install_cask() {
-
-    # Get the Latest Version
+    # Step 2
     if brew ls --versions myformula > /dev/null; then
         ruby <(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
     else
@@ -75,9 +76,8 @@ function install_cask() {
 
 
 function check_cask() {
-    # Ensure Cask is Installed
+    # Step 1
     local msg="brew cask not installed, installing"
-
     if ! type -P "brew-cask" > /dev/null; then
         echo "$msg" && install_cask
     fi

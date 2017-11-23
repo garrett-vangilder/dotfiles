@@ -1,0 +1,14 @@
+[user]
+	name = garrett-vangilder
+	email = garrett.vangilder@gmail.com
+
+[core]
+    excludesfile = ~/.gitignore
+
+[format]
+    pretty = %Cred%h%Creset%C(yellow)%d%C(green) %s %C(white)(%an - %C(bold blue)%cr%Creset)
+
+[push]
+	default = simple
+[credential]
+	helper = osxkeychain
