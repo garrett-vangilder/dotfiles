@@ -105,7 +105,5 @@ function check_cask() {
 # ===============================================================================
 # Entry Point
 # ===============================================================================
-if [ "$0" = "${BASH_SOURCE}" ]; then
-    echo "Welcome to your new machine. This will build your dev environment."
-    check_cask && main "$@"
-fi
+echo "Welcome to your new machine. This will build your dev environment."
+check_cask
