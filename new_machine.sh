@@ -34,6 +34,7 @@ function install_python() {
     echo "$msg"
     brew install python3
     pip3 install virtualenv
+    moves_config
 }
 
 # ===========================================================================
